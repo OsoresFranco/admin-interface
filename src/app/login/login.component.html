@@ -1,0 +1,32 @@
+<main>
+    <div class="login-container">
+
+        <form class="login-form"  [formGroup]="loginform" autocomplete="off">
+            <div class="login-title">
+                <h1>Bienvenido al panel de Administrador</h1>
+                <h3 class="acento">Ingresa tus datos</h3>
+            </div>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input class="input-form" matInput formControlName="email" placeholder="Email" required>
+                <mat-icon class="iconito" matSuffix>person</mat-icon>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input class="input-form" type="password" matInput formControlName="password"  placeholder="Contraseña" required>
+                <mat-icon class="iconito" matSuffix>lock</mat-icon>
+            </mat-form-field>
+        
+                
+            <button class="boton-orden" color="accent" [disabled]="!loginform.valid" (click)="login()" mat-raised-button >Login</button>
+            <p>¿No estás registrado? Solicita tu acceso<br>
+                <a href="mail.google.com" target="_blank">todoit@administracion.com</a>
+            </p>
+        </form>
+    </div>
+
+    <div class="image-container">
+            <img class="admin-img"src="../../assets/admin-dash.png" alt="administrador">
+    </div>
+</main>
