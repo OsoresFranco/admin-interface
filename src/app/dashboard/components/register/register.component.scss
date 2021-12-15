@@ -1,0 +1,27 @@
+.register-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+}
+
+    
+.font-styler{
+    font-family: 'Josefin Sans', sans-serif;
+    padding:40px;
+    text-align: center;
+}
+
+.form-fields{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field{
+    padding: 5px;
+}
+
+h2{
+    color: #e63946;
+}

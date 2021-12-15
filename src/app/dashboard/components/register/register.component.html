@@ -1,0 +1,35 @@
+<section class="login-tile">
+    <h2>Registro rápido de usuarios</h2>
+    <form class="form-fields" [formGroup]="formularioRegistro" autocomplete="off">
+        <mat-form-field>
+            <mat-label> Nombre </mat-label>
+            <input matInput formControlName="fullName" placeholder="Nombre" required>
+            <mat-error>Este campo es obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Email </mat-label>
+            <input matInput placeholder="ejemplo@hotmail.com" formControlName="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Contraseña </mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Contraseña" required>
+            <mat-error>Este campo es obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Dirección </mat-label>
+            <input matInput formControlName="address" placeholder="Dirección" required>
+            <mat-error>Este campo es obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Celular </mat-label>
+            <input matInput formControlName="cellPhone" placeholder="Celular" type="number" required>
+            <mat-error>Este campo es obligatorio</mat-error>
+        </mat-form-field>
+        <button [disabled]="!formularioRegistro.valid" mat-raised-button (click)="registrarUser()" routerLink="/inicio" style="background-color:#E73651">Registrarse</button>
+    </form> 
+</section>
