@@ -1,4 +1,5 @@
 export interface StatusTravel{
+    id: number,
     "equipmentId": string,
     "mark": string,
     "model": string,

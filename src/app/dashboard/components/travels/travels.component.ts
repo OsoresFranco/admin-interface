@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { StatusTravel } from '../../models/statusTravel';
 import { TravelService } from '../../services/travel.service';
 import { forkJoin } from 'rxjs';
+import { ChangestatusService } from '../../services/changestatus.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -11,13 +13,35 @@ import { forkJoin } from 'rxjs';
 })
 export class TravelsComponent implements OnInit{
 
-  constructor(private travel:TravelService ) { }
+  constructor(private travel:TravelService, private change:ChangestatusService ) { }
 
   displayedColumns: string[] = ['fullName', 'address', 'statusTravel', 'action'];
   viajesActivos:StatusTravel[] = [];
   viajesPendientes:StatusTravel[] = [];
   viajesEnCurso:StatusTravel[] = [];
 
+  changeStatusViaje(travel:number,statusTr:number,cadete:number,reassigned:boolean){
+    Swal.fire({
+      title: "Ingresa el ID del Cadete",
+      text: "Recuerda que debe ser un ID válido para este rol.",
+      input: 'number',
+      showCancelButton: true        
+  }).then((result) => {
+      if (result.value) {
+          let cadete = result.value;
+          
+          this.change.changeStatus(travel, statusTr, cadete, reassigned).subscribe(resp=>{
+            Swal.fire(
+              'Confirmado', 'Has Cambiado el estado del Viaje', 'success'
+            )
+          }, 
+            error => {
+              Swal.fire(
+                'Hubo un error', 'El Cadete no puede tomar más viajes o no existe', 'error'
+              )
+            })
+      } })
+  }
 
   ngOnInit(){
     let status1 = this.travel.estadodelviaje(1);
