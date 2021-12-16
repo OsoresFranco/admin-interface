@@ -1,8 +1,8 @@
-import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component, OnInit} from '@angular/core';
 import { StatusTravel } from '../../models/statusTravel';
 import { TravelService } from '../../services/travel.service';
 import { forkJoin } from 'rxjs';
+
 
 @Component({
   selector: 'app-travels',
@@ -10,14 +10,14 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./travels.component.scss']
 })
 export class TravelsComponent implements OnInit{
-  constructor(private travel:TravelService ) { }
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['fullName', 'address', 'statusTravel'];
+  constructor(private travel:TravelService ) { }
+
+  displayedColumns: string[] = ['fullName', 'address', 'statusTravel', 'action'];
   viajesActivos:StatusTravel[] = [];
   viajesPendientes:StatusTravel[] = [];
   viajesEnCurso:StatusTravel[] = [];
-  
+
 
   ngOnInit(){
     let status1 = this.travel.estadodelviaje(1);
@@ -31,11 +31,13 @@ export class TravelsComponent implements OnInit{
 
 // Viajes Activos
     forkJoin([status1, status2, status3, status4, status5, status6, status7, status8]).subscribe(resp =>{
-    this.viajesActivos = [...resp[0],...resp[1],...resp[2],...resp[3],...resp[4],...resp[5],...resp[6],...resp[7]];})
+    this.viajesActivos = [...resp[0],...resp[1],...resp[2],...resp[3],...resp[4],...resp[5],...resp[6],...resp[7]];
+  })
 
 // Viajes pendientes
   forkJoin([status1, status5]).subscribe(resp =>{
-    this.viajesPendientes = [...resp[0], ...resp[1]]
+    this.viajesPendientes = [...resp[0], ...resp[1]];
+
   })
 
 // Viajes en Curso
