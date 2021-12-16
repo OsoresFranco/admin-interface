@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TravelsComponent } from './components/travels/travels.component';
 
 
 
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     DashboardComponent,
     SidenavComponent,
-    RegisterComponent
+    RegisterComponent,
+    TravelsComponent
   ],
   imports: [
     CommonModule,
