@@ -4,6 +4,7 @@ import { TravelService } from '../../services/travel.service';
 import { forkJoin } from 'rxjs';
 import { ChangestatusService } from '../../services/changestatus.service';
 import Swal from 'sweetalert2';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -15,10 +16,12 @@ export class TravelsComponent implements OnInit{
 
   constructor(private travel:TravelService, private change:ChangestatusService ) { }
 
-  displayedColumns: string[] = ['fullName', 'address', 'statusTravel', 'action'];
+  displayedColumns: string[] = ['fullName', 'address', 'statusTravel', 'action', 'reassigned'];
   viajesActivos:StatusTravel[] = [];
   viajesPendientes:StatusTravel[] = [];
   viajesEnCurso:StatusTravel[] = [];
+
+  renunciar = new FormControl('false');
 
   changeStatusViaje(travel:number,statusTr:number,cadete:number,reassigned:boolean){
     Swal.fire({
@@ -29,15 +32,17 @@ export class TravelsComponent implements OnInit{
   }).then((result) => {
       if (result.value) {
           let cadete = result.value;
-          
+          reassigned = this.renunciar.value;
+          console.log(reassigned)
           this.change.changeStatus(travel, statusTr, cadete, reassigned).subscribe(resp=>{
             Swal.fire(
               'Confirmado', 'Has Cambiado el estado del Viaje', 'success'
-            )
+            );
+            this.ngOnInit()
           }, 
             error => {
               Swal.fire(
-                'Hubo un error', 'El Cadete no puede tomar más viajes o no existe', 'error'
+                'Hubo un error', 'Verifica la información ingresada', 'error'
               )
             })
       } })

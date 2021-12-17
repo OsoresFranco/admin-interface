@@ -38,7 +38,21 @@
               </mat-menu>
             </td>
           </ng-container>
-      
+
+          <ng-container matColumnDef="reassigned">
+            <th mat-header-cell *matHeaderCellDef> ¿Está Renunciando al viaje? </th>
+            <td mat-cell *matCellDef="let element">
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <mat-select [formControl]="renunciar" [(value)]="element.id">
+                <mat-option value="true">Si, renunciar</mat-option>
+                <mat-option value="false">No renuncia</mat-option>
+            </mat-select>
+            </mat-form-field>
+            </td>
+          </ng-container>
+
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
@@ -75,18 +89,32 @@
               <th mat-header-cell *matHeaderCellDef> Cambiar Estado </th>
               <td mat-cell *matCellDef="let element"><button [matMenuTriggerFor]="menu" mat-raised-button color="accent">Menu</button>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item>1: Solicitud de Retiro</button>
-                  <button mat-menu-item>2: Retiro Asignado</button>
-                  <button mat-menu-item>3: Retirado</button>
-                  <button mat-menu-item>4: En Reparación</button>
-                  <button mat-menu-item>5: Reparado</button>
-                  <button mat-menu-item>6: Entrega Asignada</button>
-                  <button mat-menu-item>7: Pendiente de Entrega</button>
-                  <button mat-menu-item>8: Entregado</button>
+                  <button (click)="changeStatusViaje(element.id, 1, 0, false)" mat-menu-item>1: Solicitud de Retiro</button>
+                  <button (click)="changeStatusViaje(element.id, 2, 0, false)" mat-menu-item>2: Retiro Asignado</button>
+                  <button (click)="changeStatusViaje(element.id, 3, 0, false)" mat-menu-item>3: Retirado</button>
+                  <button (click)="changeStatusViaje(element.id, 4, 0, false)" mat-menu-item>4: En Reparación</button>
+                  <button (click)="changeStatusViaje(element.id, 5, 0, false)" mat-menu-item>5: Reparado</button>
+                  <button (click)="changeStatusViaje(element.id, 6, 0, false)" mat-menu-item>6: Entrega Asignada</button>
+                  <button (click)="changeStatusViaje(element.id, 7, 0, false)" mat-menu-item>7: Pendiente de Entrega</button>
+                  <button (click)="changeStatusViaje(element.id, 8, 0, false)" mat-menu-item>8: Entregado</button>
                 </mat-menu>
               </td>
             </ng-container>
-        
+  
+            <ng-container matColumnDef="reassigned">
+              <th mat-header-cell *matHeaderCellDef> ¿Está Renunciando al viaje? </th>
+              <td mat-cell *matCellDef="let element">
+              <mat-form-field appearance="fill">
+                <mat-label>Select</mat-label>
+                <mat-select [formControl]="renunciar" [(value)]="element.id">
+                  <mat-option value="true">Si, renunciar</mat-option>
+                  <mat-option value="false">No renuncia</mat-option>
+              </mat-select>
+              </mat-form-field>
+              </td>
+            </ng-container>
+
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
@@ -121,20 +149,35 @@
 
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> Cambiar Estado </th>
-              <td mat-cell *matCellDef="let element"> <button [matMenuTriggerFor]="menu" mat-raised-button color="accent">Menu</button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item>1: Solicitud de Retiro</button>
-                <button mat-menu-item>2: Retiro Asignado</button>
-                <button mat-menu-item>3: Retirado</button>
-                <button mat-menu-item>4: En Reparación</button>
-                <button mat-menu-item>5: Reparado</button>
-                <button mat-menu-item>6: Entrega Asignada</button>
-                <button mat-menu-item>7: Pendiente de Entrega</button>
-                <button mat-menu-item>8: Entregado</button>
-              </mat-menu>
+              <td mat-cell *matCellDef="let element"><button [matMenuTriggerFor]="menu" mat-raised-button color="accent">Menu</button>
+                <mat-menu #menu="matMenu">
+                  <button (click)="changeStatusViaje(element.id, 1, 0, false)" mat-menu-item>1: Solicitud de Retiro</button>
+                  <button (click)="changeStatusViaje(element.id, 2, 0, false)" mat-menu-item>2: Retiro Asignado</button>
+                  <button (click)="changeStatusViaje(element.id, 3, 0, false)" mat-menu-item>3: Retirado</button>
+                  <button (click)="changeStatusViaje(element.id, 4, 0, false)" mat-menu-item>4: En Reparación</button>
+                  <button (click)="changeStatusViaje(element.id, 5, 0, false)" mat-menu-item>5: Reparado</button>
+                  <button (click)="changeStatusViaje(element.id, 6, 0, false)" mat-menu-item>6: Entrega Asignada</button>
+                  <button (click)="changeStatusViaje(element.id, 7, 0, false)" mat-menu-item>7: Pendiente de Entrega</button>
+                  <button (click)="changeStatusViaje(element.id, 8, 0, false)" mat-menu-item>8: Entregado</button>
+                </mat-menu>
               </td>
             </ng-container>
-        
+  
+            <ng-container matColumnDef="reassigned">
+              <th mat-header-cell *matHeaderCellDef> ¿Está Renunciando al viaje? </th>
+              <td mat-cell *matCellDef="let element">
+              <mat-form-field appearance="fill">
+                <mat-label>Select</mat-label>
+                <mat-select [formControl]="renunciar" [(value)]="element.id">
+                  <mat-option value="true">Si, renunciar</mat-option>
+                  <mat-option value="false">No renuncia</mat-option>
+              </mat-select>
+              </mat-form-field>
+              </td>
+            </ng-container>
+
+
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>

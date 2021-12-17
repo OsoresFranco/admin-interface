@@ -1,6 +1,15 @@
 <section class="login-tile">
     <h2>Registro rápido de usuarios</h2>
     <form class="form-fields" [formGroup]="formularioRegistro" autocomplete="off">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo de Usuario</mat-label>
+            <mat-select formControlName="rol">
+              <mat-option value="2">Cadete</mat-option>
+              <mat-option value="3">consumidor</mat-option>
+            </mat-select>
+          </mat-form-field>
+
         <mat-form-field>
             <mat-label> Nombre </mat-label>
             <input matInput formControlName="fullName" placeholder="Nombre" required>
@@ -10,7 +19,6 @@
         <mat-form-field>
             <mat-label> Email </mat-label>
             <input matInput placeholder="ejemplo@hotmail.com" formControlName="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -30,6 +38,16 @@
             <input matInput formControlName="cellPhone" placeholder="Celular" type="number" required>
             <mat-error>Este campo es obligatorio</mat-error>
         </mat-form-field>
-        <button [disabled]="!formularioRegistro.valid" mat-raised-button (click)="registrarUser()" routerLink="/inicio" style="background-color:#E73651">Registrarse</button>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Vehiculo</mat-label>
+            <mat-select formControlName="vehicle">
+              <mat-option value="1">Bicicleta</mat-option>
+              <mat-option value="2">Moto</mat-option>
+              <mat-option value="3">Auto</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        <button [disabled]="!formularioRegistro.valid" mat-raised-button (click)="registrarUser()" style="background-color:#E73651">Registrarse</button>
     </form> 
 </section>

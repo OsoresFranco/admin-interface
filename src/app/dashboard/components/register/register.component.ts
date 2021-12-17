@@ -10,46 +10,56 @@ import { RegUser } from '../../models/registeruser';
 })
 export class RegisterComponent implements OnInit {
 
-  formularioRegistro = new FormGroup({
-    fullName : new FormControl('', Validators.required),
-    email : new FormControl('', [Validators.required, Validators.email]),
-    password : new FormControl('', Validators.required),
-    address : new FormControl('', Validators.required),
-    cellPhone : new FormControl('', Validators.required)
-  })
-
 
   constructor( private signupservice:RegisterService) { }
 
-  user1:RegUser = {
-    fullName: '',
-    email: '',
-    password: '',
-    address: '',
-    cellPhone: ''
-  }
+  formularioRegistro = new FormGroup({
+    rol: new FormControl(0),
+    email: new FormControl('',Validators.required),
+    fullName: new FormControl('',Validators.required),
+    address: new FormControl('',Validators.required),
+    cellPhone: new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required),
+    vehicle: new FormControl(0)
+    })
+
+
 
   ngOnInit(): void {
   }
-// Inicio de Función Validador Email
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Debe ingresar un Email válido';
-    }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
 // Fin de Función Validador Email
 
+
+
+
   registrarUser():void{
-    this.user1 = this.formularioRegistro.value;
-    console.log(this.user1)
-    this.signupservice.save(this.user1).subscribe( resp => {
+    let newUser:RegUser = {
+      id: 0,
+      email: this.formularioRegistro.value.email,
+      fullName:  this.formularioRegistro.value.fullName,
+      address: this.formularioRegistro.value.address,
+      cellPhone: String(this.formularioRegistro.value.cellPhone),
+      isAccepted: true,
+      isDeleted: false,
+      password: this.formularioRegistro.value.password,
+      vehicle: {
+        id:Number(this.formularioRegistro.value.vehicle),
+        name: '',
+        isDeleted: 0,
+       },
+      rol: {
+        id: Number(this.formularioRegistro.value.rol),
+        name: "",
+        isDeleted: 0
+      }
+    }
+
+    this.signupservice.save(newUser).subscribe( resp => {
       console.log(resp)
     });
+    console.log(newUser)
     this.formularioRegistro.reset()
-    alert("Bienvenido "+ this.user1.fullName)
   }
 }

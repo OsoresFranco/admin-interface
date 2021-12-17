@@ -9,12 +9,10 @@ import { RegUser } from '../models/registeruser';
 export class RegisterService {
 
   constructor(private http:HttpClient) { 
-
   }
 
   save(user:RegUser): Observable<RegUser> {
-    console.log("Save");
-    return this.http.post<RegUser>('http://localhost:3000/api/Alta/', user);
+    return this.http.post<RegUser>('/api/Users', user);
   }
 
 }
