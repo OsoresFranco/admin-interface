@@ -42,8 +42,10 @@ export class TravelsComponent implements OnInit{
           }, 
             error => {
               Swal.fire(
-                'Hubo un error', 'Verifica la información ingresada', 'error'
-              )
+                'Hubo un error', 'Hubo un error al procesar este movimiento', 'error'
+              );
+              console.log(error)
+              this.ngOnInit()
             })
       } })
   }
