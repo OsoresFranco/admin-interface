@@ -8,6 +8,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TravelsComponent } from './components/travels/travels.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 
@@ -16,7 +17,8 @@ import { TravelsComponent } from './components/travels/travels.component';
     DashboardComponent,
     SidenavComponent,
     RegisterComponent,
-    TravelsComponent
+    TravelsComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

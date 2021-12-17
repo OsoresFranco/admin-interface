@@ -1,24 +1,41 @@
 export interface StatusTravel{
-    id: number,
-    "equipmentId": string,
-    "mark": string,
-    "model": string,
-    "failure": string,
-    "travelEquipmentDTOs": [
-      {
-        "id": string,
-        "operationDate": string,
-        "observation": string,
-        "cadete": string,
-        "operator": {
-          "id": string,
-          "email": string,
-          "fullName": string,
-          "address": string,
-          "cellPhone": string
-        },
-        "equipment": string,
-        "statusTravel": number
-      }
-    ]
+  id: number,
+  creationDate: string,
+  lastStatusTravel: number,
+  travelEquipmentDTOs: [
+    {
+      id: number,
+      operationDate: string,
+      observation: string | null,
+      cadete?: {
+        id: number,
+        email: string,
+        fullName: string | null,
+        address: string,
+        cellPhone: string
+      },
+      operator: {
+        id: number,
+        email: string,
+        fullName: string,
+        address: string,
+        cellPhone: string
+      },
+      equipment: {
+        id: number,
+        mark: string,
+        model: string,
+        failure: string,
+        clientId: number,
+        cliente: {
+          id: number,
+          email: string,
+          fullName: string,
+          address: string,
+          cellPhone: string
+        }
+      },
+      statusTravel: number
+    }
+  ]
 }

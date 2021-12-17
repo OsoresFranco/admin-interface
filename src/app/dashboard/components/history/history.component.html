@@ -1,0 +1,46 @@
+<app-sidenav></app-sidenav>
+
+<button (click)="refresh()">CLICK ME</button>
+<main>
+    <div class="tab-container">
+        <table mat-table [dataSource]="historyData">
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="cadete">
+            <th mat-header-cell *matHeaderCellDef> Cadete </th>
+            <td mat-cell *matCellDef="let element"> {{element.travelEquipmentDTOs[0].cadete?.fullName || 'Sin Cadete asignado'}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef> Cliente </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.creationDate.slice(0,9)}} </td>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="hora">
+            <th mat-header-cell *matHeaderCellDef> Hora </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estadoDelPedido">
+            <th mat-header-cell *matHeaderCellDef> Estado Del Pedido </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons 
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+</main>
