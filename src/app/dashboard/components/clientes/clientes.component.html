@@ -1,0 +1,168 @@
+<app-sidenav></app-sidenav>
+<main>
+    <div class="tab-container">
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Lista Completa">
+                <div class="tab-container">
+                    <table mat-table [dataSource]="dataSource1">
+                
+                    <!-- Cadete -->
+                    <ng-container  matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td [matMenuTriggerFor]="menu" class="clickable"  mat-cell *matCellDef="let element">
+                        {{element.fullName}} 
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>Modificar</button>
+                            <button (click)="deleteUser(element)" mat-menu-item>Eliminar</button>
+                          </mat-menu>
+                        </td>
+                    </ng-container>
+                
+                    <!-- Cliente FullName -->
+                    <ng-container matColumnDef="rol">
+                        <th mat-header-cell *matHeaderCellDef> Rol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.rol.name}} </td>
+                    </ng-container>
+                
+                    <!-- Fecha creationDate -->
+                    <ng-container matColumnDef="direccion">
+                        <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+                
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="telefono">
+                        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cellPhone}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="vehiculo">
+                        <th mat-header-cell *matHeaderCellDef> Vehiculo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.vehicle?.name || 'Sin Vehiculo'}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                showFirstLastButtons 
+                                aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </mat-tab>
+            <mat-tab label="Clientes">
+                <div class="tab-container">
+                    <table mat-table [dataSource]="clientData">
+                
+                    <!-- Cadete -->
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+                    </ng-container>
+                
+                    <!-- Cliente FullName -->
+                    <ng-container matColumnDef="rol">
+                        <th mat-header-cell *matHeaderCellDef> Rol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.rol.name}} </td>
+                    </ng-container>
+                
+                    <!-- Fecha creationDate -->
+                    <ng-container matColumnDef="direccion">
+                        <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+                
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="telefono">
+                        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cellPhone}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="vehiculo">
+                        <th mat-header-cell *matHeaderCellDef> Vehiculo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.vehicle?.name || 'Sin Vehiculo'}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                showFirstLastButtons 
+                                aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </mat-tab>
+            <mat-tab label="Cadetes">
+                <div class="tab-container">
+                    <table mat-table [dataSource]="cadeteData">
+                
+                    <!-- Cadete -->
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+                    </ng-container>
+                
+                    <!-- Cliente FullName -->
+                    <ng-container matColumnDef="rol">
+                        <th mat-header-cell *matHeaderCellDef> Rol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.rol.name}} </td>
+                    </ng-container>
+                
+                    <!-- Fecha creationDate -->
+                    <ng-container matColumnDef="direccion">
+                        <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                    </ng-container>
+                
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="telefono">
+                        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cellPhone}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+            
+                    <!-- Hora creationDate -->
+                    <ng-container matColumnDef="vehiculo">
+                        <th mat-header-cell *matHeaderCellDef> Vehiculo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.vehicle?.name || 'Sin Vehiculo'}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                showFirstLastButtons 
+                                aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+            </mat-tab>
+        
+
+        
+        </mat-tab-group>
+    </div>
+
+      
+</main>

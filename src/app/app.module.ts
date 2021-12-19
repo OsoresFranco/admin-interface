@@ -9,6 +9,7 @@ import { MaterialModule } from './material/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     ReactiveFormsModule,
     SweetAlert2Module,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
