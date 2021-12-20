@@ -60,7 +60,7 @@
             </mat-tab>
             <mat-tab label="Clientes">
                 <div class="tab-container">
-                    <table mat-table [dataSource]="clientData">
+                    <table mat-table [dataSource]="dataSource3">
                 
                     <!-- Cadete -->
                     <ng-container matColumnDef="nombre">
@@ -108,9 +108,9 @@
                     </mat-paginator>
                 </div>
             </mat-tab>
-            <mat-tab label="Cadetes">
+            <mat-tab label="Cadetes" (click)="ngOnInit()">
                 <div class="tab-container">
-                    <table mat-table [dataSource]="cadeteData">
+                    <table mat-table [dataSource]="dataSource2">
                 
                     <!-- Cadete -->
                     <ng-container matColumnDef="nombre">

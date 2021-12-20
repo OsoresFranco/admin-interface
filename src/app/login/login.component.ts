@@ -21,34 +21,30 @@ export class LoginComponent {
   user:User = {
     email: '',
     password: '',
-    rol:{ id:0
-    }
   }
 
   login(){
     this.user = this.loginform.value
     this.loginservice.login (String(this.user.email), String(this.user.password)).subscribe(  resp => {
-    
-    if(resp.rol.id === 2){
-      Swal.fire(
-        `Bienvenido ${resp.fullName}`,
-        '',
-        'success')
-      localStorage.setItem('id', JSON.stringify(resp.id));
-      this.route.navigate(['/inicio'])
-    } else {
-      Swal.fire(
-        'Error al intentar ingresar',
-        'Usuario o contraseña inválido',
-        'error')
-    }
-
-    }, (error) =>{
+      if(resp.rol.id === 1){
+        Swal.fire(
+          `Bienvenido ${resp.fullName}`,
+          '',
+          'success')
+        localStorage.setItem('id', JSON.stringify(resp.rol.id));
+        this.route.navigate(['/dash'])
+      } else {
         Swal.fire(
           'Error al intentar ingresar',
           'Usuario o contraseña inválido',
           'error')
-    })
+      }
+  
+      }, (error) =>{
+          Swal.fire(
+            'Error al intentar ingresar',
+            'Usuario o contraseña inválido',
+            'error')
+      })
   }
-
 }

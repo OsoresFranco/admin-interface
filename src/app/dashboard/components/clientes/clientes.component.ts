@@ -26,12 +26,14 @@ export class ClientesComponent implements OnInit{
   
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   allClientes:RegUser[] = [];
   allUsers:RegUser[] = [];
   allCadetes:RegUser[] = [];
+
   dataSource1 = new MatTableDataSource<RegUser>(this.allClientes);
-  dataSource2 = new MatTableDataSource<RegUser>(this.allUsers);
-  dataSource3 = new MatTableDataSource<RegUser>(this.allCadetes);
+  dataSource3 = new MatTableDataSource<RegUser>(this.allUsers);
+  dataSource2 = new MatTableDataSource<RegUser>(this.allCadetes);
 
 
   constructor(private users:UsersService, private modify:RegisterService) { }
@@ -48,22 +50,26 @@ export class ClientesComponent implements OnInit{
     ngOnInit(): void {
 
       this.users.getUsers().subscribe(resp =>{
-        this.userDataFull = resp;
           //Filtrar Cadetes
-        for (let user of this.userDataFull) {
-          if( user.rol?.id == 2){
+        for (let user of resp) {
+          if( user.rol?.id === 2){
             this.cadeteDataaux.push(user);
-          }};
-          this.cadeteData = this.cadeteDataaux
+          }
+          this.allCadetes = this.cadeteDataaux;
+          this.dataSource2.paginator = this.paginator;
+        };
 
           //Filtrar Clientes
-        for (let user of this.userDataFull) {
-          if( user.rol?.id == 3){
-            this.clientDataaux.push(user);
-          }};
-          this.clientData = this.clientDataaux;
+        for (let user of resp) {
+          if( user.rol?.id === 3){
+            this.clientDataaux.push(user)
+          }
+          this.allUsers = this.clientDataaux;
+          this.dataSource3.paginator = this.paginator;
+        };
 
-          for(let cliente of this.userDataFull){
+          // Info a Tablas
+          for(let cliente of resp){
             this.allClientes.push(cliente);
           }
           this.dataSource1.paginator = this.paginator;
