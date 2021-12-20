@@ -50,15 +50,6 @@ export class ClientesComponent implements OnInit{
     ngOnInit(): void {
 
       this.users.getUsers().subscribe(resp =>{
-          //Filtrar Cadetes
-        for (let user of resp) {
-          if( user.rol?.id === 2){
-            this.cadeteDataaux.push(user);
-          }
-          this.allCadetes = this.cadeteDataaux;
-          this.dataSource2.paginator = this.paginator;
-        };
-
           //Filtrar Clientes
         for (let user of resp) {
           if( user.rol?.id === 3){

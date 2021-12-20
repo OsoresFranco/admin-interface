@@ -21,6 +21,7 @@ export class LoginComponent {
   user:User = {
     email: '',
     password: '',
+    rol:{id:0}
   }
 
   login(){

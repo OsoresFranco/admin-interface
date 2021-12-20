@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TravelsComponent } from './components/travels/travels.component';
 import { HistoryComponent } from './components/history/history.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { CadeteTableComponent } from './components/cadete-table/cadete-table.component';
+import { ClientTableComponent } from './components/client-table/client-table.component';
+import { AdminTableComponent } from './components/admin-table/admin-table.component';
 
 
 
@@ -21,7 +24,10 @@ import { ClientesComponent } from './components/clientes/clientes.component';
     RegisterComponent,
     TravelsComponent,
     HistoryComponent,
-    ClientesComponent
+    ClientesComponent,
+    CadeteTableComponent,
+    ClientTableComponent,
+    AdminTableComponent
   ],
   imports: [
     CommonModule,
