@@ -14,6 +14,7 @@ import { CadeteTableComponent } from './components/cadete-table/cadete-table.com
 import { ClientTableComponent } from './components/client-table/client-table.component';
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
 import { ModifyModalComponent } from './components/modify-modal/modify-modal.component';
+import { EstadosPipe } from './pipes/estados.pipe';
 
 
 
@@ -29,7 +30,8 @@ import { ModifyModalComponent } from './components/modify-modal/modify-modal.com
     CadeteTableComponent,
     ClientTableComponent,
     AdminTableComponent,
-    ModifyModalComponent
+    ModifyModalComponent,
+    EstadosPipe
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 import { RegUser } from '../../models/registeruser';
 
@@ -9,6 +9,7 @@ import { RegUser } from '../../models/registeruser';
   styleUrls: ['./modify-modal.component.scss']
 })
 export class ModifyModalComponent implements OnInit {
+
 
   constructor( private signupservice:RegisterService) { }
 

@@ -1,7 +1,7 @@
 .header-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left: 15px;
     padding-right: 15px;
     align-items: center;
@@ -16,10 +16,7 @@
     max-height: 80px;
 }
 
-.links{
-    display: flex;
-    flex-direction: column;
-    button{
-        margin:5px;
-    }
+
+button{
+    margin:5px;
 }

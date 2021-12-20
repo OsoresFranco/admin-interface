@@ -19,7 +19,7 @@
     
           <ng-container matColumnDef="statusTravel">
             <th mat-header-cell *matHeaderCellDef> Estado </th>
-            <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel}}
+            <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel | estados}}
             </td>
           </ng-container>
 
@@ -44,7 +44,7 @@
             <td mat-cell *matCellDef="let element">
             <mat-form-field appearance="fill">
               <mat-label>Select</mat-label>
-              <mat-select [formControl]="renunciar">
+              <mat-select [formControl]="renunciar" [(ngModel)]="element.id">
                 <mat-option value="true">Si, renunciar</mat-option>
                 <mat-option value="false">No renuncia</mat-option>
             </mat-select>
@@ -82,7 +82,7 @@
       
             <ng-container matColumnDef="statusTravel">
               <th mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel | estados}} </td>
             </ng-container>
 
             <ng-container matColumnDef="action">
@@ -144,7 +144,7 @@
       
             <ng-container matColumnDef="statusTravel">
               <th mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.lastStatusTravel | estados}} </td>
             </ng-container>
 
             <ng-container matColumnDef="action">

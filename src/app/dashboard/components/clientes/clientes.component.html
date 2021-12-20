@@ -6,46 +6,63 @@
                 <div class="tab-container">
                     <table mat-table [dataSource]="dataSource1">
                 
-                    <!-- Cadete -->
+                    <!-- Admin -->
                     <ng-container  matColumnDef="nombre">
                         <th mat-header-cell *matHeaderCellDef> Nombre </th>
                         <td [matMenuTriggerFor]="menu" class="clickable"  mat-cell *matCellDef="let element">
                         {{element.fullName}} 
                         <mat-menu #menu="matMenu">
-                            <button mat-menu-item>Modificar</button>
+                            <button (click)="modificarNombre(element)" mat-menu-item>Modificar</button>
                             <button (click)="deleteUser(element)" mat-menu-item>Eliminar</button>
-                          </mat-menu>
+                        </mat-menu>
                         </td>
                     </ng-container>
                 
                     <!-- Cliente FullName -->
                     <ng-container matColumnDef="rol">
                         <th mat-header-cell *matHeaderCellDef> Rol </th>
-                        <td mat-cell *matCellDef="let element"> {{element.rol.name}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.rol.name}}
+                        </td>
                     </ng-container>
                 
-                    <!-- Fecha creationDate -->
+                    <!-- Direccion -->
                     <ng-container matColumnDef="direccion">
                         <th mat-header-cell *matHeaderCellDef> Dirección </th>
-                        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                        <td [matMenuTriggerFor]="menu3" mat-cell *matCellDef="let element"> {{element.address}}
+                            <mat-menu #menu3="matMenu">
+                                <button (click)="modificarDireccion(element)" mat-menu-item>Modificar</button>
+                            </mat-menu>
+                        </td>
                     </ng-container>
                 
-                    <!-- Hora creationDate -->
+                    <!-- Cellphone -->
                     <ng-container matColumnDef="telefono">
                         <th mat-header-cell *matHeaderCellDef> Teléfono </th>
-                        <td mat-cell *matCellDef="let element"> {{element.cellPhone}} </td>
+                        <td [matMenuTriggerFor]="menu4" mat-cell *matCellDef="let element"> {{element.cellPhone}}
+                            <mat-menu #menu4="matMenu">
+                                <button (click)="modificarTelefono(element)" mat-menu-item>Modificar</button>
+                            </mat-menu>
+                        </td>
                     </ng-container>
-            
-                    <!-- Hora creationDate -->
+                
+                    <!-- Email -->
                     <ng-container matColumnDef="email">
                         <th mat-header-cell *matHeaderCellDef> Email </th>
-                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        <td  [matMenuTriggerFor]="menu2" mat-cell *matCellDef="let element"> {{element.email}}
+                            <mat-menu #menu2="matMenu">
+                                <button (click)="modificarEmail(element)" mat-menu-item>Modificar</button>
+                            </mat-menu>
+                        </td>
                     </ng-container>
-            
-                    <!-- Hora creationDate -->
+                
+                    <!-- Vehiculo -->
                     <ng-container matColumnDef="vehiculo">
                         <th mat-header-cell *matHeaderCellDef> Vehiculo </th>
-                        <td mat-cell *matCellDef="let element"> {{element.vehicle?.name || 'Sin Vehiculo'}} </td>
+                        <td [matMenuTriggerFor]="menu5" mat-cell *matCellDef="let element"> {{element.vehicle?.name || 'Sin Vehiculo'}}
+                            <mat-menu #menu5="matMenu">
+                                <button (click)="modificarVehiculo(element)" mat-menu-item>Modificar</button>
+                            </mat-menu>
+                        </td>
                     </ng-container>
                 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

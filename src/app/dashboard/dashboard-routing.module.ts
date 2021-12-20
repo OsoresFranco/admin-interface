@@ -7,7 +7,10 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 
 const routes: Routes = [
   {path:'', component:DashboardComponent},
-  {path:'playground', component:ClientesComponent}
+  {path:'dash/inicio', component:DashboardComponent},
+  {path:'dash/clientes', component:ClientesComponent},
+  {path:'dash/viajes', component:TravelsComponent},
+  {path:'dash/historial', component:HistoryComponent}
 ];
 
 @NgModule({
