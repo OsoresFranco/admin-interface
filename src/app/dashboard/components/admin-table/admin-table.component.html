@@ -1,13 +1,15 @@
+<div class="Titulo"><h2>Listado de Administradores</h2></div>
+
 <div class="tab-container">
     <table mat-table [dataSource]="dataSource">
 
-    <!-- Cadete -->
+    <!-- Admin -->
     <ng-container  matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td [matMenuTriggerFor]="menu" class="clickable"  mat-cell *matCellDef="let element">
         {{element.fullName}} 
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Modificar</button>
+            <button (click)="openDialog(element)" mat-menu-item>Modificar</button>
             <button (click)="deleteUser(element)" mat-menu-item>Eliminar</button>
           </mat-menu>
         </td>

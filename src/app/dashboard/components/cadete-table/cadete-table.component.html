@@ -1,3 +1,4 @@
+<div class="Titulo"><h2>Listado de Cadetes</h2></div>
 <div class="tab-container">
     <table mat-table [dataSource]="dataSource">
 
@@ -5,7 +6,7 @@
     <ng-container  matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td [matMenuTriggerFor]="menu" class="clickable"  mat-cell *matCellDef="let element">
-        {{element.fullName}} 
+        {{element.fullName}}
         <mat-menu #menu="matMenu">
             <button mat-menu-item>Modificar</button>
             <button (click)="deleteUser(element)" mat-menu-item>Eliminar</button>

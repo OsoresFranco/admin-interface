@@ -4,6 +4,7 @@ import { UsersService } from '../../services/users.service';
 import { RegisterService } from '../../services/register.service';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-admin-table',
@@ -14,7 +15,7 @@ export class AdminTableComponent implements OnInit {
 
   displayedColumns: string[] = ['nombre', 'rol', 'direccion', 'telefono', 'email', 'vehiculo'];
 
-  constructor(private users:UsersService, private modify:RegisterService) { }
+  constructor(private users:UsersService, private modify:RegisterService, public dialog: MatDialog) { }
 
   allAdmins:RegUser[] = [];
   dataSource = new MatTableDataSource<RegUser>(this.allAdmins);
@@ -28,7 +29,13 @@ export class AdminTableComponent implements OnInit {
       this.ngOnInit();
     }
 
+    //Dialog modificar usuarios
+    openDialog(user:RegUser) {
+      
+    }
 
+
+    // Fetch de Admins
     ngOnInit(): void {
 
       this.users.getUsers().subscribe(resp =>{

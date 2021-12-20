@@ -13,6 +13,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { CadeteTableComponent } from './components/cadete-table/cadete-table.component';
 import { ClientTableComponent } from './components/client-table/client-table.component';
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
+import { ModifyModalComponent } from './components/modify-modal/modify-modal.component';
 
 
 
@@ -27,7 +28,8 @@ import { AdminTableComponent } from './components/admin-table/admin-table.compon
     ClientesComponent,
     CadeteTableComponent,
     ClientTableComponent,
-    AdminTableComponent
+    AdminTableComponent,
+    ModifyModalComponent
   ],
   imports: [
     CommonModule,
