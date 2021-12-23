@@ -15,6 +15,9 @@ import { ClientTableComponent } from './components/client-table/client-table.com
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
 import { ModifyModalComponent } from './components/modify-modal/modify-modal.component';
 import { EstadosPipe } from './pipes/estados.pipe';
+import { CurrentTravelsComponent } from './components/current-travels/current-travels.component';
+import { ActiveTravelsComponent } from './components/active-travels/active-travels.component';
+
 
 
 
@@ -31,7 +34,10 @@ import { EstadosPipe } from './pipes/estados.pipe';
     ClientTableComponent,
     AdminTableComponent,
     ModifyModalComponent,
-    EstadosPipe
+    EstadosPipe,
+    CurrentTravelsComponent,
+    ActiveTravelsComponent,
+
   ],
   imports: [
     CommonModule,

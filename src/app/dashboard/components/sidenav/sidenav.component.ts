@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavComponent implements OnInit {
 
   constructor() { }
-
+  logout(){
+    localStorage.clear()
+  }
   ngOnInit(): void {
   }
 
