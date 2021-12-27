@@ -1,6 +1,15 @@
 # Admin
+## Listado para Login
+Admin: administrador@gmail.com
+Pass: 123456
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+User: facu@gmail.com.ar
+Pass: 1222
+
+Cadete: veronica@gmail.com
+Pass: 123456
+
+
 
 ## Development server
 
